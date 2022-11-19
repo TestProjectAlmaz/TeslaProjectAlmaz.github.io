@@ -1,0 +1,59 @@
+
+
+.banner-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    margin: 50px;
+    
+  }
+  
+  .banner {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    justify-items: end;
+    align-items: center;
+    background-image: url(/public/img/tesla-tesla.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+  }
+
+.text_banner {
+    color: black;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 10px;  
+  }
+  
+  .text {
+    color: blue;
+  }
+  
+  .banner_btn {
+    background-color: blue;
+    color: aliceblue;
+    cursor: pointer;  
+    margin-top: 20px;
+    padding: 20px;
+    margin-left: 30px;
+    margin-bottom: 120px;
+    margin-right: 110px;
+    border-radius: 20px;
+    width: 250px;
+    border: none;
+    transition-duration: 2s;
+  }
+  
+  .phone {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: box-shadow 5s ease-out;
+  }
+  
+  .banner_btn:hover{
+    box-shadow: 15px 15px 15px rgb(7, 7, 7), 14px 10px 15px greenyellow;
+   background-color: darkgoldenrod;
+   transform: rotate(180deg); 
+   }
