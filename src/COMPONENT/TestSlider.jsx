@@ -1,5 +1,5 @@
 
-{/*import React from "react"
+import React from "react"
 import Slider from "react-slick"
 
 
@@ -36,4 +36,4 @@ const  TestSlider = () => {
       )
 }
 
-export default TestSlider*/}
+export default TestSlider

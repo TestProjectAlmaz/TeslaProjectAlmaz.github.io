@@ -7,7 +7,7 @@ const Home = (props) => {
     return (
         <>
         
-  {/*<TestSlider />*/}        
+  <TestSlider />      
       <Banner />        
          <Products
           items = {props.items} 
