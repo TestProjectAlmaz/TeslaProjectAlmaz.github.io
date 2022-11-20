@@ -5,8 +5,8 @@
   "version": "0.1.0",
  
   "private": true,
-
-  "homepage": "https://TestProjectAlmaz.github.io/TestProjectAlmaz/",
+ 
+  "homepage": "https://TestProjectAlmaz.github.io",
  
   "dependencies": {
  
@@ -61,9 +61,11 @@
  
    
   "server": "json-server --watch db.json -p 3004",
-    
+ 
   "predeploy": "npm run build",
   "deploy": "gh-pages -d build"
+ 
+ 
   },
  
   "eslintConfig": {
