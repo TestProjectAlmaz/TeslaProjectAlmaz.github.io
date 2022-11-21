@@ -8,15 +8,15 @@ const Favorites = (props) =>{
 
   const context = React.useContext(AppContext)
 
-    const onAddToCart = (objCart) =>{
-        axios.post('https://636ea3bdbb9cf402c806d63e.mockapi.io/cart', objCart)
-        context.setCartItems([...context.cartItems, objCart])
+    const onAddToCart = async (obj) =>{
+      const { data } = await axios.post('https://636ea3bdbb9cf402c806d63e.mockapi.io/cart', obj)
+        context.setCartItems([...context.cartItems, data])
       }
     
-    const onRemoveFavorites = (id) =>{
-        axios.delete(`https://636ea3bdbb9cf402c806d63e.mockapi.io/favorites/${id}`)
-      console.log(id)
-      context.setFavoritesItems((prev) => prev.filter(item => Number(item.id) !== Number(id)))
+    const onRemoveFavorites = async (obj) =>{
+     axios.delete(`https://636ea3bdbb9cf402c806d63e.mockapi.io/favorites/${obj.id}`)
+     
+      context.setFavoritesItems((prev) => prev.filter(item => Number(item.myId) !== Number(obj.myId)))
       }
 
     return (
@@ -32,7 +32,8 @@ const Favorites = (props) =>{
       
     return (
         <FavoritesCard
-             key = {obj.id}
+             myId = {obj.myId} 
+             key = {obj.key}
              title = {obj.title}
              id = {obj.id} 
              description = {obj.description}
@@ -40,8 +41,8 @@ const Favorites = (props) =>{
               img = {obj.img}           
               
           onFavorite = {
-            (id) => {
-                onRemoveFavorites(id)
+            (obj) => {
+                onRemoveFavorites(obj)
             }
           }
 

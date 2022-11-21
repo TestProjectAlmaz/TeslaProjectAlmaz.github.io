@@ -24,12 +24,15 @@ const Cart = (props) => {
 
             return (
                 <CartItem
+                onRemoveCartItem={props.onRemoveCartItem}
+                key={obj.id}
+                myId = {obj.myId}
                 id = {obj.id}
                 title = {obj.title}
                 description = {obj.description}
                 price = {obj.price}
                 img = {obj.img}  
-                onRemoveCartItem={props.onRemoveCartItem}   
+                  
                 />
             )
         })
@@ -38,13 +41,14 @@ const Cart = (props) => {
       
          </div>
 
-         : <h2>Ваша корзина пустая</h2>
+         : <h2>Ваша корзина пуста</h2>
     }
    
    
                 <div className={style.total_price}>
+                
                   <p className={style.total_price_text}>Итого:</p>
-                  <p className={style.total_price_summ}>{props.totalPrice} $</p>
+                  <p className={style.total_price_sum}>{props.totalPrice} $.</p>
                   <button className={style.total_price_button}>Заказать</button>
                 </div>
 

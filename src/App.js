@@ -24,6 +24,7 @@ function App() {
    const [favoritesItems, setFavoritesItems] = useState([])
   //state для поиска
   const [search, setSearch] = useState('')
+  const [dataForm, setDataForm] = React.useState([]);
   
 
 
@@ -46,17 +47,27 @@ function App() {
         
   }, [])
   
-  const onRemoveCartItem = (id) => {
-      axios.delete(`https://636ea3bdbb9cf402c806d63e.mockapi.io/cart/${id}`)     
-      setCartItems((prev) => prev.filter(item => Number (item.id) !== Number (id)))
+  const onRemoveCartItem = (obj) => {
+    setCartItems((prev) => prev.filter(item => item.myId !== obj.myId));
+      axios.delete(`https://636ea3bdbb9cf402c806d63e.mockapi.io/cart/${obj.id}`)   
+     
   }
 
-  const itemAdded = (id) => {
-    return cartItems.some((objCart) => objCart.id === id)
+  const favoritesRemoveItem = (id) => {
+    setFavoritesItems((prev) => prev.filter(item => item.id !== id));
+    axios.delete(`https://636ea3bdbb9cf402c806d63e.mockapi.io/favorites/${id}`);
+  }
+
+  const itemAdded = (obj) => {
+    return cartItems.some((objCart) => objCart.myId ==obj.myId)
   } 
 
-  const itemFavorited = (id) => {
-      return favoritesItems.some((objFavorite) => objFavorite.id === id)
+  const itemFavorited = (obj) => {
+      return favoritesItems.some((objFavorite) => objFavorite.myId === obj.myId)
+  }
+
+  const setValues = (values) =>{
+    setDataForm((prevData) => ({...prevData, ...values}))
   }
 
   return (
@@ -69,7 +80,10 @@ function App() {
     setProducts,    
     setFavoritesItems,
     itemAdded,
-    itemFavorited
+    itemFavorited,
+    dataForm,
+    setDataForm,
+    setValues
      }}>
 
 
@@ -81,9 +95,10 @@ function App() {
        cartItems= {cartItems} 
        closeCart = { () => 
        setCartOpened (false) } 
+
        totalPrice = {
-        cartItems.reduce((totalElements, objPrice) => totalElements + objPrice.price, 0)
-       }        
+       cartItems.reduce((totalElements, objPrice) => totalElements + objPrice.price, 0)
+       }  
        /> :  null } 
 
 
@@ -99,7 +114,7 @@ function App() {
         <Route path="/" element = {             
                 <Home
                   items = {products} 
-                  cartItems = {cartItems}
+                  cartItems = {cartItems}                  
                   setCartItems = {setCartItems}
                   setSearch = {setSearch}
                   search = {search}
@@ -122,3 +137,9 @@ function App() {
   
       
 export default App
+
+
+
+
+
+//setCartItems((prev) => prev.filter(item => Number (item.id) !== Number (id)))

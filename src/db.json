@@ -1,0 +1,49 @@
+	
+	{
+        "products": [
+          {
+            "id": 1,
+            "myId": 1,
+            "title": "Tesla-model-Rodster",
+            "price": 54000,
+            "img": "/img/tesla-cars.jpeg"
+          },
+          {
+            "id": 2,
+            "myId": 2,
+            "title": "Tesla-model-Red",
+            "price": 60000,
+            "img": "/img/tesla-cars-2.jpeg"
+          },
+          {
+            "id": 3,
+            "myId": 3,
+            "title": "Tesla-model-S",
+            "price": 48, 
+            "img": "/img/tesla-model-3.jpeg"
+          },
+          {
+            "id": 4,
+            "myId": 4,
+            "title": "Tesla-model-Future",
+            "price": 80000,
+            "img": "/img/tesla-cars-4.jpeg"
+          },
+          {
+            "id": 5,
+            "myId": 5,
+            "title": "Tesla-model-City",
+            "price": 50000,
+            "img": "/img/white-tesla-5.jpeg"
+          },
+          {
+            "id": 6,
+            "myId": 6,
+            "title": "Tesla-model-Behanse",
+            "price": 65000,
+            "img": "/img/tesla-cars-6.jpeg"
+          }
+        ],
+        "cart": [],
+        "favorites": []
+      }

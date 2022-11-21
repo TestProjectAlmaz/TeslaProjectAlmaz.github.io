@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import style from "./card.module.css"
 import { AppContext } from "../../../App";
 
@@ -7,10 +7,13 @@ const Card = (props) => {
 
   const context = React.useContext(AppContext)
   
+  let id = props.id;
+  let myId = props.myId; 
   
   const onClickPlus = () => {
     let id = props.id
     let myId = props.myId
+    
     let title = props.title
     let description = props.description
     let price = props.price
@@ -23,6 +26,7 @@ const Card = (props) => {
   const onClickFavorite = () => {
     let id = props.id
     let myId = props.myId
+   
     let title = props.title
     let description = props.description
     let price = props.price
@@ -38,9 +42,10 @@ const Card = (props) => {
 
         
          {
-          context.itemFavorited(props.id) === true ? 
-          <button className={style.favorite_btn_added} onClick={onClickFavorite}>Добавлен в избранное</button> : 
-           <button className = {style.favorite_btn} onClick={onClickFavorite} >Добавить в избранное</button>
+          //context.itemFavorited(props.id) === true ? 
+          <button className={context.itemFavorited({id, myId}) ?style.favorite_btn_added : style.favorite_btn } onClick={onClickFavorite}>{context.itemFavorited({id, myId}) ?
+           'Убрать из избранного' : 'Добавить в избранное'}
+           </button>
         }
 
        
@@ -54,8 +59,8 @@ const Card = (props) => {
 
               <span>{props.price}</span>
 
-              <button className={context.itemAdded(props.id) ? style.check_btn : style.plus_btn} onClick={onClickPlus}>              
-              <img src={context.itemAdded(props.id) ? '/img/check.png' : '/img/plus.png'} alt=""/>
+              <button className={context.itemAdded({id, myId}) ? style.check_btn : style.plus_btn} onClick={onClickPlus}>              
+              <img src={context.itemAdded({id, myId}) ? '/img/check.png' : '/img/plus.png'} alt=""/>
 
               </button>
 

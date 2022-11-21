@@ -10,18 +10,15 @@ body{
 .h3_slider{
   background: #5f9ea0;
   color: #fff;
+  position: relative;
   font-size: 36px;
   line-height: 100px;
   margin: 10px;
-  padding: 2%;
-  position: relative;
-  text-align: center;
-  z-index: 1;
+  padding: 2%; 
+  text-align: center; 
 }
 
-
-
-
+/*.teslaCars-2*/
 
 
 

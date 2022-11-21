@@ -15,7 +15,7 @@ const  TestSlider = () => {
       return(
         <Slider {...settings}>
         <div>
-          <h3 className="h3_slider">1</h3>
+          <h3 className="h3_slider-1"><img className="teslaCars-2" src="/img/tesla-cars-2.jpeg" alt="tesla" /></h3>
         </div>
         <div>
           <h3 className="h3_slider">2</h3>

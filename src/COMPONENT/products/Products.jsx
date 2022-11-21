@@ -2,26 +2,28 @@ import React from "react"
 import axios from "axios"
 import Card from "./card/Card"
 import style from "./products.module.css"
-
+import { AppContext } from "../../App"
 
 
 const Products = (props) =>{
 
-  const onAddToCart = async (objCart) =>{
+  const context = React.useContext(AppContext)
+
+  const onAddToCart = async (obj) =>{
     try{
-      const findCartItem = props.cartItems.find((cartItem) => cartItem.myId === objCart.myId) 
+      const findCartItem = context.cartItems.find(cartItem => cartItem.myId === obj.myId) 
 
       if( findCartItem )
       {
         axios.delete(`https://636ea3bdbb9cf402c806d63e.mockapi.io/cart/${findCartItem.id}`)
 
-        props.setCartItems(prev => prev.filter(cartItem => cartItem.myId !== objCart.myId))
+        context.setCartItems(prev => prev.filter(cartItem => cartItem.myId !== obj.myId))
       }else
 
       {
-        const { data } = await axios.post('https://636ea3bdbb9cf402c806d63e.mockapi.io/cart', objCart)
+        const { data } = await axios.post('https://636ea3bdbb9cf402c806d63e.mockapi.io/cart', obj)
 
-        props.setCartItems([...props.cartItems, data])
+        context.setCartItems([...context.cartItems, data])
       }     
     }
 
@@ -34,7 +36,7 @@ const Products = (props) =>{
 const onAddToFavorite = async (objFavorite) =>{
   try {
 
-    const findFavoriteItem = props.favoritesItems.find(favoriteItem => favoriteItem.myId === objFavorite.myId)
+    const findFavoriteItem = context.favoritesItems.find(favoriteItem => favoriteItem.myId === objFavorite.myId)
 
     if (findFavoriteItem)
     {
@@ -43,7 +45,7 @@ const onAddToFavorite = async (objFavorite) =>{
     {
        const { data } = await axios.post('https://636ea3bdbb9cf402c806d63e.mockapi.io/favorites', objFavorite)
 
-      props.setFavoritesItems([...props.favoritesItems, data])
+      context.setFavoritesItems([...context.favoritesItems, data])
     }
   } 
    catch {

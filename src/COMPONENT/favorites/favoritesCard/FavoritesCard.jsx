@@ -1,38 +1,38 @@
-import React, { useState } from "react"
+import React from "react"
 import style from "./favoritesCard.module.css"
-
+import { AppContext } from '../../../App'
 
 
 const FavoritesCard = (props) => {
+  const context = React.useContext(AppContext);
+
+  let id = props.id;
+  let myId = props.myId;  
   
-  const[added, setAdded] = React.useState(false);
-  //const [favorite, setFavorite] = useState(true);
 
   const onClickPlus = () => {
     let title = props.title;
     let description = props.description
+    let id = props.id;
     let price = props.price
     let img = props.img
+    let key = props.key;
+    let myId = props.myId;
 
-    props.onPlus({title, description, price, img})
-    setAdded(!added)    
+    props.onPlus({title, id, myId, key, description, price, img})
+     
   }
   
   const onClickFavorite = () => {
-    props.onFavorite(props.id)
+    props.onFavorite({id,myId})
 
-   // setFavorite(!favorite)    
+      
   }
 
     return (
 
         <div className={style.product_item}>
-
-        {/*
-          favorite === true ? <button className={style.favorite_btn_added} onClick={onClickFavorite} >Автомобиль добавлен в избранное</button> :  <button className = {style.favorite_btn} onClick={onClickFavorite} >Добавить автомобиль в избранное</button>
-        */}
-
-        <button className={style.favorite_btn_added} onClick={onClickFavorite} >Автомобиль добавлен в избранное</button>
+                <button className={style.favorite_btn_on} onClick={onClickFavorite} >Удалить автомобиль из избранного</button>
 
             <img className={style.product_img} src= {props.img}  alt="tesla" />
             <p className={style.product_title}>{props.title}</p>
@@ -42,10 +42,12 @@ const FavoritesCard = (props) => {
             
             <div className={style.product_price}>
 
-              <span>{props.price}</span>
+              <span>{props.price}$</span>
 
-              <button className={added ? style.check_btn : style.plus_btn} onClick={onClickPlus}>              
-              <img src={added ? '/img/check.png' : '/img/plus.png'} alt=""/>
+              <button 
+              className=    {context.itemAdded({id, myId}) ?
+              style.check_btn : style.plus_btn} onClick={onClickPlus}>              
+               <img src={ context.itemAdded({id, myId}) ? '/img/check.png': '/img/plus.png'} alt=""/>
 
               </button>
 

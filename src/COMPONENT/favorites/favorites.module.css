@@ -30,11 +30,11 @@
   /* Поиск */
   
   .search{
+    background-color: #3547e9;
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
-    margin-right: 25px; 
-   
+    margin-right: 25px;    
   }
   
   .search h2 {
