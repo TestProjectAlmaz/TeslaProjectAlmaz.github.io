@@ -97,7 +97,7 @@ function App() {
        setCartOpened (false) } 
 
        totalPrice = {
-       cartItems.reduce((totalElements, objPrice) => totalElements + objPrice.price, 0)
+       cartItems.reduce((totalElements, objPrice) => totalElements + Number(objPrice.price), 0)
        }  
        /> :  null } 
 
