@@ -142,4 +142,3 @@ export default App
 
 
 
-//setCartItems((prev) => prev.filter(item => Number (item.id) !== Number (id)))

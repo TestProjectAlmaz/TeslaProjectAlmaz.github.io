@@ -22,8 +22,8 @@ const Favorites = (props) =>{
     return (
         <div className={style.product_section}>          
                 <div className= {style.search}>
-            <h2>Избранные модели</h2>      
-              </div>                  
+            <div><h2 className={style.models}>Избранные модели</h2></div>     
+                      
 
    <div className={style.products}>
 
@@ -56,7 +56,7 @@ const Favorites = (props) =>{
               })
    
                }
-
+             </div>  
          </div>   
      </div>
 

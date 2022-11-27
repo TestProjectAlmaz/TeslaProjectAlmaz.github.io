@@ -56,12 +56,12 @@
   }
 
   .count_cart_items {
-    font-size: 16px;
+    font-size: 26px;
     font-weight: bold;
-    background: white;
+    background: rgb(157, 226, 66);
     padding: 5px;
     border-radius: 20px;
     color: rgb(20, 17, 216);
-    margin: auto;
+    margin-left: 20px;
   }
   

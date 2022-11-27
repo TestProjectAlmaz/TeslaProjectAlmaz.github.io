@@ -68,7 +68,7 @@
   width: 16px; 
 }
 
-.favorite_btn{
+.favorite_btn_on{
   border: 0;
   border-radius: 10px;
   background-color: #001aff;
@@ -81,8 +81,12 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.favorite_btn:hover{
+.favorite_btn_on:hover{
   transform: translateX(20px);
+  background-color: #c8e6e6;
+  color: rgb(8, 8, 8);
+  transition: 1s;
+  font-weight: bold;
 }
 
 .favorite_btn_added {

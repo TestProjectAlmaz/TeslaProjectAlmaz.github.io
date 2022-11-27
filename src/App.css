@@ -1,6 +1,7 @@
 
-body{
+html, body{
   background-color: #5656db;
+  height: 100%;
 }
 
 .app {
