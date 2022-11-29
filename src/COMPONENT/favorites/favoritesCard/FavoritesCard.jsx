@@ -42,7 +42,7 @@ const FavoritesCard = (props) => {
             
             <div className={style.product_price}>
 
-              <span>{props.price}$</span>
+              <span>{props.price}₽</span>
 
               <button 
               className=    {context.itemAdded({id, myId}) ?

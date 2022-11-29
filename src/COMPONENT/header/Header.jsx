@@ -10,6 +10,7 @@ const Header = (props) =>{
         </Link>
         
         <nav>
+        
        <Link to='/favorites'>
         <button className={style.nav_item}>
             ИЗБРАННОЕ
@@ -17,7 +18,11 @@ const Header = (props) =>{
         </Link>
 
             <div className={style.cart_btn}>
+
+           
     <button className={style.nav_item} onClick = {props.openCart} >КОРЗИНА</button>
+            
+
         <span className = {style.count_cart_items}>
             {props.cartItems.length}
         </span>

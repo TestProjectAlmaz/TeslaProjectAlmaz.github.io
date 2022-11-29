@@ -1,5 +1,5 @@
 import style from "./banner.module.css"
-
+import { Link } from 'react-router-dom'
 const Banner = () =>{
     return (
         <div className={style.banner_section}>
@@ -12,9 +12,13 @@ const Banner = () =>{
             <span className={style.text}>на весь модельный ряд автомобилей Тесла</span>
           </p>
           <br />
+
+          <Link to='/footer'>
           <button className={style.banner_btn}>
-            <span className={style.phone}>Купить TESLA</span>
+            <span className={style.phone}>Купить tesla <br />контакты</span>
           </button>
+          </Link>
+
         </div>
       </div>
     )
