@@ -2,6 +2,7 @@
 
 
 <h2>Description</h2>:
-     <h3>   1. My first  React project.
-                 2. Written using modules and components
-                      3. The server part of the project is on the mockApi</h3>
+     <h3>   1. My first  React project. <br />
+                 2. Written using modules and components. <br />
+                      3. The server part of the project is on the mockApi. <br />
+                             4. And also implemented the payment page for the goods.  </h3>
